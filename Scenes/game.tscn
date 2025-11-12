@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://d35dyu7g81yds"]
+
+[ext_resource type="Texture2D" uid="uid://dr25dewwn2fnm" path="res://Assets/art-objects/Background.png" id="1_ebmjs"]
+[ext_resource type="Script" uid="uid://drunahwsul0ee" path="res://Scripts/game.gd" id="1_wowpa"]
+[ext_resource type="PackedScene" uid="uid://xr8lrth1gcej" path="res://Scenes/ship-alive.tscn" id="2_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://ccynuksesam0c" path="res://Scenes/life_full.tscn" id="3_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://b73m3w5ncg4jt" path="res://Scenes/Dice1.tscn" id="4_3dryh"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_wowpa")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("1_ebmjs")
+
+[node name="ship-alive" parent="." instance=ExtResource("2_qxrlw")]
+position = Vector2(640, 510)
+scale = Vector2(3, 3)
+
+[node name="life-full" parent="." instance=ExtResource("3_wrm1d")]
+position = Vector2(776, 648)
+scale = Vector2(2, 2)
+
+[node name="life-full2" parent="." instance=ExtResource("3_wrm1d")]
+position = Vector2(840, 648)
+scale = Vector2(2, 2)
+
+[node name="life-full3" parent="." instance=ExtResource("3_wrm1d")]
+position = Vector2(904, 648)
+scale = Vector2(2, 2)
+
+[node name="Dice1" parent="." instance=ExtResource("4_3dryh")]
+position = Vector2(536, 648)
+scale = Vector2(2.5, 2.5)
