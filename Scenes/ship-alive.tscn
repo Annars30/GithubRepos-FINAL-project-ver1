@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://xr8lrth1gcej"]
+
+[ext_resource type="Texture2D" uid="uid://0n6i1j6jqnrq" path="res://Assets/art-objects/Spaceship.png" id="1_jhrju"]
+[ext_resource type="Script" uid="uid://dtafvf4l081u4" path="res://Scripts/ship_alive.gd" id="1_o0j0i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0j0i"]
+size = Vector2(25, 30)
+
+[node name="ship-alive" type="CharacterBody2D"]
+script = ExtResource("1_o0j0i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jhrju")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_o0j0i")
