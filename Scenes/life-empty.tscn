@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://6sjb3sfnq42i"]
+
+[ext_resource type="Texture2D" uid="uid://br8nhcglymhhl" path="res://Assets/art-objects/Life_empty.png" id="1_24iar"]
+
+[node name="life-empty" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_24iar")
