@@ -1,34 +1,36 @@
-[gd_scene load_steps=6 format=3 uid="uid://d35dyu7g81yds"]
+[gd_scene load_steps=7 format=3 uid="uid://d35dyu7g81yds"]
 
 [ext_resource type="Texture2D" uid="uid://dr25dewwn2fnm" path="res://Assets/art-objects/Background.png" id="1_ebmjs"]
 [ext_resource type="Script" uid="uid://drunahwsul0ee" path="res://Scripts/game.gd" id="1_wowpa"]
 [ext_resource type="PackedScene" uid="uid://xr8lrth1gcej" path="res://Scenes/ship-alive.tscn" id="2_qxrlw"]
-[ext_resource type="PackedScene" uid="uid://ccynuksesam0c" path="res://Scenes/life_full.tscn" id="3_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://b73m3w5ncg4jt" path="res://Scenes/Dice1.tscn" id="4_3dryh"]
+[ext_resource type="PackedScene" uid="uid://c86tyludxm03s" path="res://Scenes/Dice2.tscn" id="6_i6g32"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wowpa"]
+normal = Vector2(-1, 0)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_wowpa")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(640, 360)
+position = Vector2(640.00006, 359.99997)
 texture = ExtResource("1_ebmjs")
 
 [node name="ship-alive" parent="." instance=ExtResource("2_qxrlw")]
 position = Vector2(640, 510)
 scale = Vector2(3, 3)
 
-[node name="life-full" parent="." instance=ExtResource("3_wrm1d")]
-position = Vector2(776, 648)
-scale = Vector2(2, 2)
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(1248, 520)
+disable_mode = 1
 
-[node name="life-full2" parent="." instance=ExtResource("3_wrm1d")]
-position = Vector2(840, 648)
-scale = Vector2(2, 2)
-
-[node name="life-full3" parent="." instance=ExtResource("3_wrm1d")]
-position = Vector2(904, 648)
-scale = Vector2(2, 2)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_wowpa")
 
 [node name="Dice1" parent="." instance=ExtResource("4_3dryh")]
-position = Vector2(536, 648)
+position = Vector2(592.00006, 648)
+scale = Vector2(2.5, 2.5)
+
+[node name="Dice2" parent="." instance=ExtResource("6_i6g32")]
+position = Vector2(688, 648)
 scale = Vector2(2.5, 2.5)
