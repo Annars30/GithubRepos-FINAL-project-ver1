@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://c86tyludxm03s"]
+
+[ext_resource type="Script" uid="uid://bk1earwhsnafi" path="res://Scripts/dice_2.gd" id="1_1ns5q"]
+[ext_resource type="Texture2D" uid="uid://dqrdjx7brbrkq" path="res://Assets/art-objects/Dice2_spritesheet.png" id="1_2wdig"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ns5q"]
+atlas = ExtResource("1_2wdig")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y47kn"]
+atlas = ExtResource("1_2wdig")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j064m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ns5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y47kn")
+}],
+"loop": true,
+"name": &"Rolling-2",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m50xq"]
+size = Vector2(32, 32)
+
+[node name="Dice2" type="CharacterBody2D"]
+script = ExtResource("1_1ns5q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_j064m")
+animation = &"Rolling-2"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_m50xq")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
