@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://0p5rqdiadylr"]
+
+[ext_resource type="Texture2D" uid="uid://vbgqofi43g7w" path="res://Assets/supernova_beams_waves/Life_spreadsheet.png" id="1_x8vni"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhdol"]
+atlas = ExtResource("1_x8vni")
+region = Rect2(0, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehsk2"]
+atlas = ExtResource("1_x8vni")
+region = Rect2(96, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0u2u"]
+atlas = ExtResource("1_x8vni")
+region = Rect2(192, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymxlf"]
+atlas = ExtResource("1_x8vni")
+region = Rect2(288, 0, 96, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vph8b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhdol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehsk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0u2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymxlf")
+}],
+"loop": true,
+"name": &"Life",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7vvr"]
+size = Vector2(92, 28)
+
+[node name="Life" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vph8b")
+animation = &"Life"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_j7vvr")
