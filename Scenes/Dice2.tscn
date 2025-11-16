@@ -21,7 +21,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_y47kn")
 }],
 "loop": true,
-"name": &"Rolling-2",
+"name": &"Dice_2",
 "speed": 15.0
 }]
 
@@ -33,7 +33,7 @@ script = ExtResource("1_1ns5q")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_j064m")
-animation = &"Rolling-2"
+animation = &"Dice_2"
 
 [node name="Area2D" type="Area2D" parent="."]
 
