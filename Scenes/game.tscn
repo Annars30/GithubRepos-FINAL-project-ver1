@@ -1,13 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://d35dyu7g81yds"]
+[gd_scene load_steps=10 format=3 uid="uid://d35dyu7g81yds"]
 
 [ext_resource type="Texture2D" uid="uid://dr25dewwn2fnm" path="res://Assets/art-objects/Background.png" id="1_ebmjs"]
 [ext_resource type="Script" uid="uid://drunahwsul0ee" path="res://Scripts/game.gd" id="1_wowpa"]
-[ext_resource type="PackedScene" uid="uid://xr8lrth1gcej" path="res://Scenes/ship-alive.tscn" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://b73m3w5ncg4jt" path="res://Scenes/Dice1.tscn" id="4_3dryh"]
+[ext_resource type="PackedScene" uid="uid://wwesqpmhus8n" path="res://Scenes/ship.tscn" id="5_wowpa"]
+[ext_resource type="PackedScene" uid="uid://0p5rqdiadylr" path="res://Scenes/Life.tscn" id="6_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://c86tyludxm03s" path="res://Scenes/Dice2.tscn" id="6_i6g32"]
+[ext_resource type="PackedScene" uid="uid://pjfgfs20cbg6" path="res://Scenes/supernova.tscn" id="7_1l0tm"]
+[ext_resource type="Script" uid="uid://dqid2lbjwppak" path="res://Scripts/supernova.gd" id="8_v158k"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wowpa"]
-normal = Vector2(-1, 0)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_wowpa")
@@ -16,21 +18,30 @@ script = ExtResource("1_wowpa")
 position = Vector2(640.00006, 359.99997)
 texture = ExtResource("1_ebmjs")
 
-[node name="ship-alive" parent="." instance=ExtResource("2_qxrlw")]
-position = Vector2(640, 510)
-scale = Vector2(3, 3)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(1248, 520)
-disable_mode = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("WorldBoundaryShape2D_wowpa")
-
 [node name="Dice1" parent="." instance=ExtResource("4_3dryh")]
-position = Vector2(592.00006, 648)
-scale = Vector2(2.5, 2.5)
+position = Vector2(480.00003, 656)
+scale = Vector2(2.3, 2.3)
 
 [node name="Dice2" parent="." instance=ExtResource("6_i6g32")]
-position = Vector2(688, 648)
-scale = Vector2(2.5, 2.5)
+position = Vector2(576, 656)
+scale = Vector2(2.3, 2.3)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(24, 416.00003)
+rotation = 1.5724819
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(3.04, 3.079999)
+shape = SubResource("WorldBoundaryShape2D_wowpa")
+
+[node name="ship" parent="." instance=ExtResource("5_wowpa")]
+position = Vector2(640, 544)
+scale = Vector2(3, 3)
+
+[node name="Life" parent="." instance=ExtResource("6_1l0tm")]
+position = Vector2(760, 656)
+scale = Vector2(2, 2)
+
+[node name="Supernova" parent="." instance=ExtResource("7_1l0tm")]
+position = Vector2(640, -168)
+script = ExtResource("8_v158k")
