@@ -1,0 +1,97 @@
+[gd_scene load_steps=16 format=3 uid="uid://wwesqpmhus8n"]
+
+[ext_resource type="Texture2D" uid="uid://c0mg4tqtequcu" path="res://Assets/art-objects/Spaceship_attacked_spritesheet.png" id="1_gh7xi"]
+[ext_resource type="Script" uid="uid://dyb0wodve7gg5" path="res://Scripts/ship.gd" id="1_vlli0"]
+[ext_resource type="Texture2D" uid="uid://tm8drx5rcah4" path="res://Assets/art-objects/Spaceship_dead.png" id="3_xxxu3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4gd2"]
+atlas = ExtResource("1_gh7xi")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kp8jp"]
+atlas = ExtResource("1_gh7xi")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ejuo"]
+atlas = ExtResource("3_xxxu3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8aq7e"]
+atlas = ExtResource("3_xxxu3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmder"]
+atlas = ExtResource("3_xxxu3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwcnm"]
+atlas = ExtResource("3_xxxu3")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxdp2"]
+atlas = ExtResource("3_xxxu3")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2j2m"]
+atlas = ExtResource("3_xxxu3")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1m05r"]
+atlas = ExtResource("3_xxxu3")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssryt"]
+atlas = ExtResource("3_xxxu3")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rspev"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4gd2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kp8jp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ejuo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8aq7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmder")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwcnm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxdp2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2j2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1m05r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssryt")
+}],
+"loop": false,
+"name": &"ship",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nsyqi"]
+size = Vector2(25, 30)
+
+[node name="ship" type="CharacterBody2D"]
+script = ExtResource("1_vlli0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rspev")
+animation = &"ship"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_nsyqi")
