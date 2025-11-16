@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://hpkrac6tluh3"]
+
+[ext_resource type="Texture2D" uid="uid://bxbmo7kih17gv" path="res://Assets/supernova_beams_waves/Ship_beams_yellow.png" id="1_jdbm6"]
+[ext_resource type="Script" uid="uid://draylotv86jgv" path="res://Scripts/yellow_beam.gd" id="1_mrb4v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jdbm6"]
+size = Vector2(8, 40)
+
+[node name="Yellow_beam" type="Area2D"]
+script = ExtResource("1_mrb4v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.24999976, 0.6249998)
+texture = ExtResource("1_jdbm6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jdbm6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
