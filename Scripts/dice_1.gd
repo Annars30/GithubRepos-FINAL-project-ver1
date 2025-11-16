@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 	if spinning:
 		return
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and is_mouse_over: 
-		animated_sprite.play("Rolling")
+		animated_sprite.play("Dice_1")
 		wait_and_stop()
 	
 	
