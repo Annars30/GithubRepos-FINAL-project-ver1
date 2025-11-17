@@ -6,7 +6,7 @@ var is_mouse_over = false
 var spinning := false
 
 func do_something():
-	var result := randi_range(0,1)
+	var result := randi_range(0,2)
 	animated_sprite.set_frame_and_progress(result, 0)
 	#do stuff with result
 
