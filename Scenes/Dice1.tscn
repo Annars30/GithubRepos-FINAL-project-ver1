@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b73m3w5ncg4jt"]
+[gd_scene load_steps=7 format=3 uid="uid://b73m3w5ncg4jt"]
 
 [ext_resource type="Texture2D" uid="uid://cdwv6ddk5hkuf" path="res://Assets/art-objects/Dice1_spritesheet.png" id="1_4wlka"]
 [ext_resource type="Script" uid="uid://mpvd66ip2eyo" path="res://Scripts/dice_1.gd" id="1_pi6k4"]
@@ -11,10 +11,6 @@ region = Rect2(0, 0, 32, 32)
 atlas = ExtResource("1_4wlka")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8uo7w"]
-atlas = ExtResource("1_4wlka")
-region = Rect2(64, 0, 32, 32)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_3gfgi"]
 animations = [{
 "frames": [{
@@ -23,9 +19,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pi6k4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8uo7w")
 }],
 "loop": true,
 "name": &"Dice_1",
@@ -41,6 +34,7 @@ script = ExtResource("1_pi6k4")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3gfgi")
 animation = &"Dice_1"
+frame_progress = 0.92201185
 
 [node name="Area2D" type="Area2D" parent="."]
 
