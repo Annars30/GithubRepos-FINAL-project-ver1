@@ -40,6 +40,7 @@ height = 59.0832
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4tfkk")
 animation = &"Supernova"
+autoplay = "Supernova"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(23.56, 11.240002)
