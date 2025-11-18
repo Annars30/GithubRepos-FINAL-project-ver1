@@ -28,7 +28,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Supernova",
-"speed": 5.0
+"speed": 3.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0j3un"]
@@ -41,6 +41,8 @@ height = 59.0832
 sprite_frames = SubResource("SpriteFrames_4tfkk")
 animation = &"Supernova"
 autoplay = "Supernova"
+frame = 1
+frame_progress = 0.24243687
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(23.56, 11.240002)
