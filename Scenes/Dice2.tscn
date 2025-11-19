@@ -42,7 +42,7 @@ script = ExtResource("1_1ns5q")
 sprite_frames = SubResource("SpriteFrames_m50xq")
 animation = &"Dice_2"
 frame = 2
-frame_progress = 0.78869426
+frame_progress = 0.788694
 
 [node name="Area2D" type="Area2D" parent="."]
 
