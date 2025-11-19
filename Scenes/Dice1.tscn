@@ -34,7 +34,7 @@ script = ExtResource("1_pi6k4")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3gfgi")
 animation = &"Dice_1"
-frame_progress = 0.92201185
+frame_progress = 0.922012
 
 [node name="Area2D" type="Area2D" parent="."]
 
