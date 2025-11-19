@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://ts3yit31wyip"]
+
+[ext_resource type="Texture2D" uid="uid://c40hhmbfn40y3" path="res://Assets/supernova_beams_waves/Supernova_waves_3color.png" id="1_pe2ol"]
+[ext_resource type="Script" uid="uid://clnauq864v6ri" path="res://Scripts/supernova_wave.gd" id="1_po6nc"]
+[ext_resource type="Texture2D" uid="uid://dyfltaur55cl7" path="res://Assets/supernova_beams_waves/Supernova_waves_6color.png" id="3_jq2m5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4q8by"]
+radius = 200.0
+height = 402.0
+
+[node name="Supernova_wave" type="Area2D"]
+script = ExtResource("1_po6nc")
+sprite_list = Array[Texture2D]([ExtResource("1_pe2ol"), ExtResource("3_jq2m5")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pe2ol")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_4q8by")
