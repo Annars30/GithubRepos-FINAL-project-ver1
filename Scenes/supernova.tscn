@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://pjfgfs20cbg6"]
+[gd_scene load_steps=8 format=3 uid="uid://pjfgfs20cbg6"]
 
 [ext_resource type="Texture2D" uid="uid://ce7w8lqh26b55" path="res://Assets/supernova_beams_waves/Supernova_spreadsheet.png" id="1_7ad45"]
+[ext_resource type="Script" uid="uid://dqid2lbjwppak" path="res://Scripts/supernova.gd" id="1_gpcjt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gpcjt"]
 atlas = ExtResource("1_7ad45")
@@ -32,18 +33,17 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0j3un"]
-radius = 28.522923
+radius = 28.5229
 height = 59.0832
 
 [node name="Supernova" type="CharacterBody2D"]
+script = ExtResource("1_gpcjt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4tfkk")
 animation = &"Supernova"
 autoplay = "Supernova"
-frame = 1
-frame_progress = 0.24243687
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(23.56, 11.240002)
+scale = Vector2(23.56, 11.24)
 shape = SubResource("CapsuleShape2D_0j3un")
