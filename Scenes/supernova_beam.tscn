@@ -1,0 +1,22 @@
+[gd_scene load_steps=9 format=3 uid="uid://col67elwqfu6e"]
+
+[ext_resource type="Script" uid="uid://c57t20eb30ihu" path="res://Scripts/supernova_beam.gd" id="1_ibvyw"]
+[ext_resource type="Texture2D" uid="uid://b774pqjn8i3t0" path="res://Assets/supernova_beams_waves/Supernova_beams_blue.png" id="2_qeqhr"]
+[ext_resource type="Texture2D" uid="uid://brgbq51457ahi" path="res://Assets/supernova_beams_waves/Supernova_beams_green.png" id="3_0ob77"]
+[ext_resource type="Texture2D" uid="uid://dtsrc06nr117u" path="res://Assets/supernova_beams_waves/Supernova_beams_orange.png" id="4_1mgsy"]
+[ext_resource type="Texture2D" uid="uid://bhg2ba3nooqp5" path="res://Assets/supernova_beams_waves/Supernova_beams_red.png" id="5_71r75"]
+[ext_resource type="Texture2D" uid="uid://d3n3l140wj7s2" path="res://Assets/supernova_beams_waves/Supernova_beams_violet.png" id="6_mlplm"]
+[ext_resource type="Texture2D" uid="uid://ch2q0gh0aa8w8" path="res://Assets/supernova_beams_waves/Supernova_beams_yellow.png" id="7_rt4oh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ne1y"]
+size = Vector2(32, 64)
+
+[node name="Supernova_beam" type="Area2D"]
+script = ExtResource("1_ibvyw")
+sprite_list = Array[Texture2D]([ExtResource("2_qeqhr"), ExtResource("3_0ob77"), ExtResource("4_1mgsy"), ExtResource("5_71r75"), ExtResource("6_mlplm"), ExtResource("7_rt4oh")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_qeqhr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1ne1y")
