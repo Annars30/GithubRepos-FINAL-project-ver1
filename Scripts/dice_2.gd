@@ -2,13 +2,16 @@ extends CharacterBody2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+signal dice_2_rolled(result : int)
+
+
 var is_mouse_over = false
 var spinning := false
 
-func do_something():
+func process_dice_result():
 	var result := randi_range(0,2)
 	animated_sprite.set_frame_and_progress(result, 0)
-	#do stuff with result
+	dice_2_rolled.emit(result)
 
 
 func _on_area_2d_mouse_entered() -> void:
@@ -31,5 +34,5 @@ func wait_and_stop():
 	print(wait_time)
 	await get_tree().create_timer(wait_time).timeout
 	animated_sprite.stop()
-	do_something()
+	process_dice_result()
 	spinning = false
