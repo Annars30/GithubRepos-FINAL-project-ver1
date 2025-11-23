@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d35dyu7g81yds"]
+[gd_scene load_steps=10 format=3 uid="uid://d35dyu7g81yds"]
 
 [ext_resource type="Texture2D" uid="uid://dr25dewwn2fnm" path="res://Assets/art-objects/Background.png" id="1_ebmjs"]
 [ext_resource type="Script" uid="uid://drunahwsul0ee" path="res://Scripts/game.gd" id="1_wowpa"]
@@ -8,7 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://c86tyludxm03s" path="res://Scenes/Dice2.tscn" id="6_i6g32"]
 [ext_resource type="PackedScene" uid="uid://pjfgfs20cbg6" path="res://Scenes/supernova.tscn" id="7_1l0tm"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wowpa"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1l0tm"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_v158k"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_wowpa")
@@ -25,17 +27,26 @@ scale = Vector2(2.3, 2.3)
 position = Vector2(576, 656)
 scale = Vector2(2.3, 2.3)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="WallContainer" type="Node2D" parent="."]
 position = Vector2(24, 416)
 rotation = 1.57248
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="Wall" type="StaticBody2D" parent="WallContainer"]
+physics_interpolation_mode = 2
+position = Vector2(0.0252545, 15)
 scale = Vector2(3.04, 3.08)
-shape = SubResource("WorldBoundaryShape2D_wowpa")
 
-[node name="ship" parent="." instance=ExtResource("5_wowpa")]
-position = Vector2(640, 544)
-scale = Vector2(3, 3)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallContainer/Wall"]
+shape = SubResource("WorldBoundaryShape2D_1l0tm")
+
+[node name="Wall1" type="StaticBody2D" parent="WallContainer"]
+physics_interpolation_mode = 2
+position = Vector2(-0.104548, -1250)
+rotation = -3.14159
+scale = Vector2(3.04, 3.08)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallContainer/Wall1"]
+shape = SubResource("WorldBoundaryShape2D_v158k")
 
 [node name="Life" parent="." instance=ExtResource("6_1l0tm")]
 position = Vector2(760, 656)
@@ -43,6 +54,15 @@ scale = Vector2(2, 2)
 
 [node name="Supernova" parent="." instance=ExtResource("7_1l0tm")]
 position = Vector2(640, -168)
+
+[node name="ship" parent="." instance=ExtResource("5_wowpa")]
+physics_interpolation_mode = 2
+position = Vector2(640, 544)
+scale = Vector2(3, 3)
+collision_layer = 3
+collision_mask = 3
+floor_block_on_wall = false
+platform_wall_layers = 255
 
 [connection signal="dice_1_rolled" from="Dice1" to="Supernova" method="_on_dice_1_rolled"]
 [connection signal="dice_2_rolled" from="Dice2" to="Supernova" method="_on_dice_2_rolled"]
