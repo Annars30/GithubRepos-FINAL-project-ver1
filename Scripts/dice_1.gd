@@ -1,12 +1,9 @@
 extends CharacterBody2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-
 signal dice_1_rolled(result : int)
-
 var is_mouse_over = false
 var spinning := false
-
 
 func process_dice_result():
 	var result := randi_range(0,1)
