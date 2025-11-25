@@ -4,8 +4,8 @@ extends Area2D
 @onready var ship_beam: Sprite2D = $Sprite2D
 @export var speed: float = 400 
 var direction: Vector2
-
 @export var color_id: int = 0
+
 
 func _physics_process(delta):
 	position += direction * speed * delta
