@@ -64,5 +64,6 @@ collision_mask = 3
 floor_block_on_wall = false
 platform_wall_layers = 255
 
+[connection signal="dice_1_rolled" from="Dice1" to="Dice2" method="_on_dice_1_rolled"]
 [connection signal="dice_1_rolled" from="Dice1" to="Supernova" method="_on_dice_1_rolled"]
 [connection signal="dice_2_rolled" from="Dice2" to="Supernova" method="_on_dice_2_rolled"]
