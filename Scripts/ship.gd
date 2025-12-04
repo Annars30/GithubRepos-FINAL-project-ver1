@@ -1,6 +1,8 @@
 extends CharacterBody2D
+class_name Ship
+
+
 @onready var ship_sprite = $AnimatedSprite2D
-@onready var supernova = $AnimatedSprite2D
 
 
 #MY VERSION
@@ -50,10 +52,10 @@ func shoot(color_id):
 	
 
 # CURRENTLY NOT COLLIDING WITH SUPERNOVA / SUPERNOVA BEAMS (BUT DOESN'T EXPLODE WHEN COLLIDING WITH WALLS
-func _physics_process(delta):
-	var collision = move_and_collide(velocity * delta)
-	if collision:
-		if collision == supernova:
-			ship_sprite.play("ship")
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is Ship:
+		pass
 	else:
-			pass
+		ship_sprite.play("ship")
