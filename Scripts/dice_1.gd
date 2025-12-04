@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 signal dice_1_rolled(result : int)
-var is_mouse_over = false
 var spinning := false
 
 func process_dice_result():
@@ -11,18 +10,10 @@ func process_dice_result():
 	dice_1_rolled.emit(result)
 
 
-func _on_area_2d_mouse_entered() -> void:
-	is_mouse_over = true
 
-func _on_area_2d_mouse_exited() -> void:
-	is_mouse_over = false
-
-func _process(delta: float) -> void:
-	if spinning:
-		return
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and is_mouse_over: 
-		animated_sprite.play("Dice_1")
-		wait_and_stop()
+func _ready() -> void:
+	animated_sprite.play("Dice_1")
+	wait_and_stop()
 	
 func wait_and_stop():
 	spinning = true
