@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4q8by"]
 radius = 224.0
-height = 543.78424
+height = 543.784
 
 [node name="Supernova_wave_3" type="CharacterBody2D"]
 script = ExtResource("1_hdw8w")
@@ -15,5 +15,5 @@ texture = ExtResource("2_25qrc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -181)
-scale = Vector2(2.5600023, 1.0362817)
+scale = Vector2(2.56, 1.03628)
 shape = SubResource("CapsuleShape2D_4q8by")
