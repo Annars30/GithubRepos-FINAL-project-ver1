@@ -9,18 +9,16 @@
 [ext_resource type="Texture2D" uid="uid://ch2q0gh0aa8w8" path="res://Assets/supernova_beams_waves/Supernova_beams_yellow.png" id="7_rt4oh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ne1y"]
-size = Vector2(8, 56)
+size = Vector2(8, 46)
 
 [node name="Supernova_beam" type="Area2D"]
 script = ExtResource("1_ibvyw")
 sprite_list = Array[Texture2D]([ExtResource("2_qeqhr"), ExtResource("3_0ob77"), ExtResource("4_1mgsy"), ExtResource("5_71r75"), ExtResource("6_mlplm"), ExtResource("7_rt4oh")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1.1920929e-07, 0)
-scale = Vector2(0.24999999, 0.875)
+position = Vector2(-1.19209e-07, 4.76837e-07)
+scale = Vector2(0.25, 0.71875)
 texture = ExtResource("2_qeqhr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1ne1y")
-
-[connection signal="dice_2_rolled" from="." to="." method="_on_dice_2_rolled"]
