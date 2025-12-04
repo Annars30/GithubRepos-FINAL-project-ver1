@@ -47,3 +47,9 @@ autoplay = "Supernova"
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 scale = Vector2(23.56, 11.24)
 shape = SubResource("CapsuleShape2D_0j3un")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-601, 76)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(572, 41)
