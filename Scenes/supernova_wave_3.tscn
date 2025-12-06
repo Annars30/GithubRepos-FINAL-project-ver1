@@ -1,17 +1,42 @@
-[gd_scene load_steps=4 format=3 uid="uid://ts3yit31wyip"]
+[gd_scene load_steps=8 format=3 uid="uid://ts3yit31wyip"]
 
 [ext_resource type="Script" uid="uid://clnauq864v6ri" path="res://Scripts/supernova_wave_3.gd" id="1_hdw8w"]
 [ext_resource type="Texture2D" uid="uid://c40hhmbfn40y3" path="res://Assets/supernova_beams_waves/Supernova_waves_3color.png" id="2_25qrc"]
+[ext_resource type="Texture2D" uid="uid://dyfltaur55cl7" path="res://Assets/supernova_beams_waves/Supernova_waves_6color.png" id="3_25qrc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tc5p"]
+atlas = ExtResource("2_25qrc")
+region = Rect2(0, 0, 1280, 191)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ejr3"]
+atlas = ExtResource("3_25qrc")
+region = Rect2(0, 0, 1280, 191)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2kqpn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tc5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ejr3")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4q8by"]
 radius = 224.0
 height = 543.784
 
-[node name="Supernova_wave_3" type="CharacterBody2D"]
+[node name="Supernova_wave" type="CharacterBody2D"]
 script = ExtResource("1_hdw8w")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_25qrc")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2kqpn")
+frame = 1
+frame_progress = 0.114957
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -181)
