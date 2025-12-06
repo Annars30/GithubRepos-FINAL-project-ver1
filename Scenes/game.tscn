@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d35dyu7g81yds"]
+[gd_scene load_steps=11 format=3 uid="uid://d35dyu7g81yds"]
 
 [ext_resource type="Texture2D" uid="uid://dr25dewwn2fnm" path="res://Assets/art-objects/Background.png" id="1_ebmjs"]
 [ext_resource type="Script" uid="uid://drunahwsul0ee" path="res://Scripts/game.gd" id="1_wowpa"]
@@ -12,6 +12,9 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_v158k"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1l0tm"]
+size = Vector2(102.99816, 419.00122)
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_wowpa")
 
@@ -22,10 +25,12 @@ texture = ExtResource("1_ebmjs")
 [node name="Dice1" parent="." instance=ExtResource("4_3dryh")]
 position = Vector2(480, 656)
 scale = Vector2(2.3, 2.3)
+collision_mask = 2
 
 [node name="Dice2" parent="." instance=ExtResource("6_i6g32")]
 position = Vector2(576, 656)
 scale = Vector2(2.3, 2.3)
+collision_mask = 2
 
 [node name="WallContainer" type="Node2D" parent="."]
 position = Vector2(24, 416)
@@ -48,21 +53,25 @@ scale = Vector2(3.04, 3.08)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallContainer/Wall1"]
 shape = SubResource("WorldBoundaryShape2D_v158k")
 
+[node name="Dice_walls" type="StaticBody2D" parent="WallContainer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallContainer/Dice_walls"]
+position = Vector2(250.4516, -623.9224)
+shape = SubResource("RectangleShape2D_1l0tm")
+
 [node name="Life" parent="." instance=ExtResource("6_1l0tm")]
 position = Vector2(760, 656)
 scale = Vector2(2, 2)
-
-[node name="Supernova" parent="." instance=ExtResource("7_1l0tm")]
-position = Vector2(640, -168)
 
 [node name="ship" parent="." instance=ExtResource("5_wowpa")]
 physics_interpolation_mode = 2
 position = Vector2(640, 544)
 scale = Vector2(3, 3)
-collision_layer = 3
-collision_mask = 3
 floor_block_on_wall = false
 platform_wall_layers = 255
+
+[node name="Supernova" parent="." instance=ExtResource("7_1l0tm")]
+position = Vector2(640, -168)
 
 [connection signal="dice_1_rolled" from="Dice1" to="Dice2" method="_on_dice_1_rolled"]
 [connection signal="dice_1_rolled" from="Dice1" to="Supernova" method="_on_dice_1_rolled"]
