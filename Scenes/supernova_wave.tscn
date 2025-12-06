@@ -30,6 +30,7 @@ radius = 220.70313
 height = 449.21875
 
 [node name="Supernova_wave" type="CharacterBody2D"]
+disable_mode = 2
 script = ExtResource("1_po6nc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
