@@ -8,17 +8,20 @@
 [ext_resource type="Texture2D" uid="uid://d3n3l140wj7s2" path="res://Assets/supernova_beams_waves/Supernova_beams_violet.png" id="6_mlplm"]
 [ext_resource type="Texture2D" uid="uid://ch2q0gh0aa8w8" path="res://Assets/supernova_beams_waves/Supernova_beams_yellow.png" id="7_rt4oh"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ne1y"]
-size = Vector2(8, 46)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qeqhr"]
+radius = 7.0
+height = 52.0
 
 [node name="Supernova_beam" type="Area2D"]
 script = ExtResource("1_ibvyw")
 sprite_list = Array[Texture2D]([ExtResource("2_qeqhr"), ExtResource("3_0ob77"), ExtResource("4_1mgsy"), ExtResource("5_71r75"), ExtResource("6_mlplm"), ExtResource("7_rt4oh")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1.19209e-07, 4.76837e-07)
-scale = Vector2(0.25, 0.71875)
+position = Vector2(-5.9604645e-07, -4.7683716e-07)
+scale = Vector2(0.49999997, 0.81249994)
 texture = ExtResource("2_qeqhr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_1ne1y")
+shape = SubResource("CapsuleShape2D_qeqhr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
