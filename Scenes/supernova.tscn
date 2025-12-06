@@ -44,12 +44,17 @@ sprite_frames = SubResource("SpriteFrames_4tfkk")
 animation = &"Supernova"
 autoplay = "Supernova"
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="AnimatedSprite2D"]
 scale = Vector2(23.56, 11.24)
 shape = SubResource("CapsuleShape2D_0j3un")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(-601, 76)
+position = Vector2(-537, 171)
 
 [node name="Marker2D2" type="Marker2D" parent="."]
-position = Vector2(572, 41)
+position = Vector2(544, 174)
+
+[node name="BeamTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[connection signal="timeout" from="BeamTimer" to="." method="_on_beam_timer_timeout"]
