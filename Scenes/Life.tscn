@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://0p5rqdiadylr"]
+[gd_scene load_steps=7 format=3 uid="uid://0p5rqdiadylr"]
 
 [ext_resource type="Texture2D" uid="uid://vbgqofi43g7w" path="res://Assets/supernova_beams_waves/Life_spreadsheet.png" id="1_x8vni"]
 
@@ -38,15 +38,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7vvr"]
-size = Vector2(80, 22)
-
 [node name="Life" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vph8b")
 animation = &"Life"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0)
-shape = SubResource("RectangleShape2D_j7vvr")
