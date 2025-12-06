@@ -29,6 +29,7 @@ func change_color(color_id : int):
 		supernova.set_frame_and_progress(2, 0.0)
 
 func _on_dice_1_rolled(result: int) -> void:
+	dice1_result = result
 	change_color(result)
 	
 
@@ -42,10 +43,10 @@ func _physics_process(delta):
 func _on_dice_2_rolled(result: int) -> void:
 	if result == 2:
 		expand = true
-	elif result == 0:
+	if result == 0:
 		super_beam_shoot(current_color_id)
 		beam_timer.start()
-	elif result == 1:
+	if result == 1:
 		wave_move()
 #WAVE
 var wave_scene = preload("res://Scenes/supernova_wave.tscn")
@@ -54,7 +55,8 @@ func wave_move():
 	wave.global_position = Vector2(646, 97)
 	wave.direction = Vector2.DOWN
 	get_tree().current_scene.add_child(wave)
-	wave.wave_color()
+	print("dice1_result", dice1_result)
+	wave.wave_color(dice1_result)
 
 #BEAMS
 var super_beam = preload ("res://Scenes/supernova_beam.tscn")
