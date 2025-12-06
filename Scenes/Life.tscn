@@ -39,7 +39,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j7vvr"]
-size = Vector2(92, 28)
+size = Vector2(80, 22)
 
 [node name="Life" type="CharacterBody2D"]
 
@@ -48,4 +48,5 @@ sprite_frames = SubResource("SpriteFrames_vph8b")
 animation = &"Life"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_j7vvr")
