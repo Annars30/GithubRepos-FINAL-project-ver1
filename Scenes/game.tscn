@@ -72,7 +72,7 @@ shape = SubResource("RectangleShape2D_1l0tm")
 [node name="ship" parent="." instance=ExtResource("5_wowpa")]
 physics_interpolation_mode = 2
 position = Vector2(640, 544)
-scale = Vector2(3, 3)
+scale = Vector2(3.5, 3.5)
 floor_block_on_wall = false
 platform_wall_layers = 255
 
