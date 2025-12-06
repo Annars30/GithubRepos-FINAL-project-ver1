@@ -1,19 +1,44 @@
-[gd_scene load_steps=5 format=3 uid="uid://ts3yit31wyip"]
+[gd_scene load_steps=7 format=3 uid="uid://boqap7dyjdr70"]
 
-[ext_resource type="Texture2D" uid="uid://c40hhmbfn40y3" path="res://Assets/supernova_beams_waves/Supernova_waves_3color.png" id="1_pe2ol"]
-[ext_resource type="Script" uid="uid://clnauq864v6ri" path="res://Scripts/supernova_wave.gd" id="1_po6nc"]
-[ext_resource type="Texture2D" uid="uid://dyfltaur55cl7" path="res://Assets/supernova_beams_waves/Supernova_waves_6color.png" id="3_jq2m5"]
+[ext_resource type="Script" uid="uid://bdsh53ma2sqqe" path="res://Scripts/supernova_wave.gd" id="1_po6nc"]
+[ext_resource type="Texture2D" uid="uid://bvrehly40c0nu" path="res://Assets/supernova_beams_waves/Supernova_waves.png" id="2_4q8by"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4q8by"]
-radius = 200.0
-height = 402.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_4q8by"]
+atlas = ExtResource("2_4q8by")
+region = Rect2(0, 0, 1280, 191)
 
-[node name="Supernova_wave" type="Area2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_po6nc"]
+atlas = ExtResource("2_4q8by")
+region = Rect2(1280, 0, 1280, 191)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ecsb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4q8by")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_po6nc")
+}],
+"loop": false,
+"name": &"wave",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2vpvp"]
+radius = 220.70313
+height = 449.21875
+
+[node name="Supernova_wave" type="CharacterBody2D"]
 script = ExtResource("1_po6nc")
-sprite_list = Array[Texture2D]([ExtResource("1_pe2ol"), ExtResource("3_jq2m5")])
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_pe2ol")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4ecsb")
+animation = &"wave"
+frame = 1
+frame_progress = 0.9196431
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_4q8by")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D"]
+position = Vector2(-4, -145)
+scale = Vector2(2.56, 1.03628)
+shape = SubResource("CapsuleShape2D_2vpvp")
