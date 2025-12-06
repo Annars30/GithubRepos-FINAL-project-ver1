@@ -7,5 +7,4 @@ var move_speed := 10
 var dice1_result: int 
 
 func _physics_process(delta):
-	if dice1_result == 2:
-		supernova_wave6.position.y += move_speed * delta
+	supernova_wave6.position.y += move_speed * delta
