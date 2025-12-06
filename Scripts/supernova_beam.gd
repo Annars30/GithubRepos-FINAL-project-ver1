@@ -1,5 +1,6 @@
 extends Area2D
 
+
 @export var sprite_list: Array[Texture2D]
 @onready var supernova_beam: Sprite2D = $Sprite2D
 @export var speed: float = 200 
