@@ -8,9 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://cc23e45d3ylv2" path="res://Assets/supernova_beams_waves/Ship_beams_violet.png" id="6_ggmbo"]
 [ext_resource type="Texture2D" uid="uid://bxbmo7kih17gv" path="res://Assets/supernova_beams_waves/Ship_beams_yellow.png" id="7_xbk1e"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sfm5j"]
-radius = 2.0
-height = 28.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sfm5j"]
+size = Vector2(8, 29)
 
 [node name="Ship_beam" type="Area2D"]
 priority = 1
@@ -23,6 +22,7 @@ scale = Vector2(0.1875, 0.4375)
 texture = ExtResource("2_aiv2a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_sfm5j")
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_sfm5j")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
