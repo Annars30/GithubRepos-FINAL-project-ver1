@@ -1,10 +1,10 @@
 extends CharacterBody2D
-class_name Ship
+class_name SHIP
 @onready var ship_sprite = $AnimatedSprite2D
 
 
 	#MOVING THE SHIP
-const SPEED = 600.0
+const SPEED = 550.0
 func _process(delta: float) -> void:
 	var direction = 0.0
 	if Input.is_action_pressed("move_right"):
@@ -45,8 +45,8 @@ func shoot(color_id):
 
 # CURRENTLY NOT COLLIDING WITH SUPERNOVA / SUPERNOVA BEAMS (BUT DOESN'T EXPLODE WHEN COLLIDING WITH WALLS
 
-func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
-	if body is Ship:
-		print ("Collision")
-	else:
-		ship_sprite.play("ship")
+
+	#if body is Ship:
+		#print ("Collision")
+	#else:
+		#ship_sprite.play("ship")
