@@ -1,5 +1,4 @@
 extends Area2D
-class_name ShipBeam
 @export var sprite_list: Array[Texture2D]
 @onready var ship_beam: Sprite2D = $Sprite2D
 @export var speed: float = 350 
@@ -9,11 +8,5 @@ var direction: Vector2
 func _ready() -> void:
 	ship_beam.texture = sprite_list[color_id]
 
-
 func _physics_process(delta):
 	position += direction * speed * delta
-
-
-func _on_area_entered(area: Area2D) -> void:
-	if area is ShipBeam:
-		queue_free()
