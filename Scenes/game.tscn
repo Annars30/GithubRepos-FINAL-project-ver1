@@ -14,7 +14,7 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_v158k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1l0tm"]
-size = Vector2(102.99816, 520.011)
+size = Vector2(102.998, 520.011)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_wowpa")
@@ -34,9 +34,9 @@ scale = Vector2(2.3, 2.3)
 collision_mask = 3
 
 [node name="RestartButton" parent="." instance=ExtResource("5_v158k")]
-position = Vector2(384.00006, 656)
+position = Vector2(384, 656)
 rotation = 1.57248
-scale = Vector2(2.2999997, 2.2999997)
+scale = Vector2(2.3, 2.3)
 
 [node name="Life" parent="." instance=ExtResource("6_1l0tm")]
 position = Vector2(760, 656)
@@ -66,7 +66,7 @@ shape = SubResource("WorldBoundaryShape2D_v158k")
 [node name="Dice_walls" type="StaticBody2D" parent="WallContainer"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallContainer/Dice_walls"]
-position = Vector2(250.4516, -573.41736)
+position = Vector2(250.452, -573.417)
 shape = SubResource("RectangleShape2D_1l0tm")
 
 [node name="ship" parent="." instance=ExtResource("5_wowpa")]
