@@ -26,18 +26,17 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2vpvp"]
-radius = 220.70313
-height = 449.21875
+radius = 220.703
+height = 449.219
 
 [node name="Supernova_wave" type="CharacterBody2D"]
 disable_mode = 2
 script = ExtResource("1_po6nc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, 0)
 sprite_frames = SubResource("SpriteFrames_4ecsb")
 animation = &"wave"
-frame = 1
-frame_progress = 0.9196431
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D"]
 position = Vector2(-4, -145)
