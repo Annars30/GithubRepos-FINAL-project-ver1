@@ -41,7 +41,6 @@ func shoot(color_id):
 	bullet.color_id = color_id 
 	get_tree().current_scene.add_child(bullet)
 	
-	
 
 # CURRENTLY NOT COLLIDING WITH SUPERNOVA / SUPERNOVA BEAMS (BUT DOESN'T EXPLODE WHEN COLLIDING WITH WALLS
 
