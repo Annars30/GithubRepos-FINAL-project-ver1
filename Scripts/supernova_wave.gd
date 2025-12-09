@@ -9,6 +9,5 @@ var dice1_result: int
 func wave_color(dice1_result: int):
 	supernova_wave.frame = dice1_result
 
-
 func _physics_process(delta):
 	supernova_wave.position.y += move_speed * delta
