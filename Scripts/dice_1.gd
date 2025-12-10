@@ -10,7 +10,6 @@ func process_dice_result():
 	dice_1_rolled.emit(result)
 
 
-
 func _ready() -> void:
 	animated_sprite.play("Dice_1")
 	wait_and_stop()
