@@ -46,7 +46,7 @@ autoplay = "Supernova"
 frame = 1
 frame_progress = 0.58708525
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="AnimatedSprite2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 scale = Vector2(23.56, 11.24)
 shape = SubResource("CapsuleShape2D_0j3un")
 
@@ -59,4 +59,14 @@ position = Vector2(572, 157)
 [node name="BeamTimer" type="Timer" parent="."]
 wait_time = 4.0
 
+[node name="Marker2D3" type="Marker2D" parent="."]
+position = Vector2(-640, 89)
+
+[node name="Marker2D4" type="Marker2D" parent="."]
+position = Vector2(-208, 110)
+
+[node name="WaveTimer" type="Timer" parent="."]
+wait_time = 15.0
+
 [connection signal="timeout" from="BeamTimer" to="." method="_on_beam_timer_timeout"]
+[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
