@@ -6,17 +6,16 @@ class_name SupernovaBeam
 var direction: Vector2
 #0 : Blue, 1: Green
 @export var color_id: int
-@onready var ship_animation: AnimatedSprite2D = $AnimatedSprite2D
+@onready var ship_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var life_score: AnimatedSprite2D = $AnimatedSprite2D
 #@onready var reload_timer: Timer = $GameReload
 
-#func _ready():
-	#connect("area_entered", _on_area_entered)
-	
+#SUPERBEAM MOVING
 func _physics_process(delta):
 	position += direction * speed * delta
 	
 	
+#SETTING THE COLORS OF SUPERBEAMS
 func set_color(color):
 	color_id = color
 	supernova_beam.texture = sprite_list[color_id]
@@ -31,7 +30,7 @@ func set_color(color):
 			#area.queue_free()
 			#queue_free()
 
-	
+#SUPERBEAMS COLLIDING WITH (contrast color_id)SHIPBEAMS AND ERASING EACH OTHER
 func _on_area_entered(area: Area2D) -> void:
 	if area is ShipBeam:
 		var beam = area as ShipBeam
@@ -55,11 +54,9 @@ func _on_area_entered(area: Area2D) -> void:
 			queue_free()
 
 #WHEN SUPERNOVA BEAM ENTERS SHIP, SHIP EXPLODES AND SUPERNOVA BEAM GETS ERASED
+#RIGHT NOW SHIP DESTRUCTION IS BEING REPLAYED AFTER THE EXPLOSION (
 func _on_body_entered(body: Node2D) -> void:
 	if body is SHIP:
 		body.ship_sprite.play("ship")
+		#body.queue_free() AFTER ANIMATION IS PLAYED
 		queue_free()
-
-
-#func _on_game_reload_timeout() -> void:
-	#get_tree().change_scene_to_file("res://Scenes/game.tscn")
