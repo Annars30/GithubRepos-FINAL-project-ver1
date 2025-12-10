@@ -3,7 +3,7 @@ class_name SHIP
 @onready var ship_sprite = $AnimatedSprite2D
 
 
-	#MOVING THE SHIP
+#MOVING THE SHIP
 const SPEED = 550.0
 func _process(delta: float) -> void:
 	var direction = 0.0
@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 	move_and_slide()
 	
 	
-	#SHOOTING
+#SHOOTING
 @onready var muzzle = $Muzzle
 var Beam = preload("res://Scenes/ship_beam.tscn")
 
@@ -41,11 +41,5 @@ func shoot(color_id):
 	bullet.color_id = color_id 
 	get_tree().current_scene.add_child(bullet)
 	
-
-# CURRENTLY NOT COLLIDING WITH SUPERNOVA / SUPERNOVA BEAMS (BUT DOESN'T EXPLODE WHEN COLLIDING WITH WALLS
-
-
-	#if body is Ship:
-		#print ("Collision")
-	#else:
-		#ship_sprite.play("ship")
+	
+#HOW TO MAKE  SHIP EXPLODE WHEN COLLIDING WITH SUPERNOVA (THEY BOTH ARE CHARACTERBODY2D)
