@@ -21,6 +21,6 @@ position = Vector2(640, 512)
 texture = ExtResource("2_48xlc")
 script = ExtResource("3_ce3w2")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="TutorialButton" type="Sprite2D" parent="."]
 position = Vector2(1192, 88)
 texture = ExtResource("3_1ehe0")
