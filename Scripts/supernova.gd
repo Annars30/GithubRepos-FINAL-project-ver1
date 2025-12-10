@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-
+class_name SupernovaStar
 @onready var supernova = $AnimatedSprite2D   #supernova
 @onready var supernova_wave: AnimatedSprite2D = $AnimatedSprite2D#supernova wave
 @onready var supernova_beams = $Sprite2D #supernova beams
@@ -8,11 +8,19 @@ var expand := false
 var expand_speed := 7.0
 @onready var marker_2d: Marker2D = $Marker2D
 @onready var marker_2d_2: Marker2D = $Marker2D2
+@onready var marker_2d_3: Marker2D = $Marker2D3
+@onready var marker_2d_4: Marker2D = $Marker2D4
 var current_color_id : int
 var beam_colors_0 := [1, 2, 4]
 var beam_colors_1 := [0, 1, 2, 3, 4, 5]
 @onready var beam_timer: Timer = $BeamTimer
+@onready var wave_timer: Timer = $WaveTimer
 var dice1_result: int
+#HOW DO I CREATE COLORED ZONES IN SUPERNOVA?
+#var orangezone_color_id: int = 2
+#var violetzone_color_id: int = 4 
+#var greenzone_color_id: int =  1 
+#var orange_zone = randi_range (int(marker_2d_3.position.x), int(marker_2d_4.position.x))
 
 
 #DICE1 ACTION EFFECT (3color,6color)
@@ -48,6 +56,8 @@ func _on_dice_2_rolled(result: int) -> void:
 		beam_timer.start()
 	if result == 1:
 		wave_move()
+		wave_timer.start()
+
 #WAVE
 var wave_scene = preload("res://Scenes/supernova_wave.tscn")
 func wave_move():
@@ -58,7 +68,7 @@ func wave_move():
 	print("dice1_result", dice1_result)
 	wave.wave_color(dice1_result)
 
-#BEAMS
+#BEAMS 
 var super_beam = preload ("res://Scenes/supernova_beam.tscn")
 func super_beam_shoot(color_id):
 	if color_id == 0:
@@ -83,6 +93,10 @@ func super_beam_shoot(color_id):
 			print(supbeam.position)
 
 
-#BEAMS SHOOTING INFINITELY
+#SUPERBEAMS SHOOTING INFINITELY
 func _on_beam_timer_timeout() -> void:
 	super_beam_shoot(current_color_id)
+
+#SUPERWAVES SHOOTING INFINITELY
+func _on_wave_timer_timeout() -> void:
+	wave_move()
